@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
-from fonction.filtrer_attribut_type import filter_csv_by_attribute
+from fonction.filtrer_attribut_typeF import filter_csv_by_attribute
+from fonction.suppression_colonneF import process_csv_columns
 import pandas as pd
 import os
 
@@ -12,9 +13,11 @@ class App:
         
         self.main_frame = ttk.Frame(root)
         self.filter_frame = ttk.Frame(root)
+        #self.process_frame = ttk.Frame(root)
         
         self.setup_main_view()
         self.setup_filter_view()
+        #self.setup_process_view()
         
         self.show_main_view()
     
@@ -73,7 +76,8 @@ class App:
             
             self.root.after(2000, self.show_main_view)
             
-            filtered_folder = os.path.join(os.path.dirname(self.file_entry.get().strip()), "resultat")
+            script_directory = os.path.dirname(os.path.abspath(__file__))
+            filtered_folder = os.path.join(script_directory, "resultat")
             os.startfile(filtered_folder)
         except Exception as e:
             self.status_label.config(text=f"Erreur: {str(e)}")
