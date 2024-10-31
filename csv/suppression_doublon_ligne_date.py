@@ -45,6 +45,6 @@ data_sorted = data.sort_values(by=attributes + [date_attribute], ascending=(date
 
 deduplicated_data = data_sorted.drop_duplicates(subset=attributes, keep='first')
 
-output_file = output_folder + "/deduplicated_" + csv_file
+output_file = output_folder + "/deduplicated_ligne_" + csv_file
 deduplicated_data.to_csv(output_file, index=False)
 print(f"Fichier sans doublons '{output_file}' créé avec succès.")

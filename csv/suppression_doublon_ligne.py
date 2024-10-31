@@ -24,6 +24,6 @@ for attribute in attributes:
 
 deduplicated_data = data.drop_duplicates(subset=attributes)
 
-output_file = output_folder + "/deduplicated_" + csv_file
+output_file = output_folder + "/deduplicated_ligne_date_" + csv_file
 deduplicated_data.to_csv(output_file, index=False)
 print(f"Fichier sans doublons '{output_file}' créé avec succès.")
