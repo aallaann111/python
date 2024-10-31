@@ -28,7 +28,7 @@ for attribute in attributes:
 date_choice = input("Voulez-vous garder la ligne avec la date la plus récente ou la plus ancienne ? (entrez 'recent' ou 'ancien'): ").strip().lower()
 
 if date_choice not in ['recent', 'ancien']:
-    print("Erreur : Veuillez entrer 'récent' pour la date la plus récente ou 'ancien' pour la plus ancienne.")
+    print("Erreur : Veuillez entrer 'recent' pour la date la plus récente ou 'ancien' pour la plus ancienne.")
     exit()
 
 try:
@@ -37,14 +37,16 @@ except Exception as e:
     print(f"Erreur lors de la conversion de '{date_attribute}' en format date : {e}")
     exit()
 
-output_folder = "resultat"
-if not os.path.exists(output_folder):
-    os.makedirs(output_folder)
-    
 data_sorted = data.sort_values(by=attributes + [date_attribute], ascending=(date_choice == 'ancien'))
 
 deduplicated_data = data_sorted.drop_duplicates(subset=attributes, keep='first')
 
-output_file = output_folder + "/deduplicated_ligne_" + csv_file
+base_filename = os.path.splitext(os.path.basename(csv_file))[0]
+
+output_folder = "resultat"
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
+
+output_file = os.path.join(output_folder, f"deduplicated_ligne_date_{base_filename}.csv")
 deduplicated_data.to_csv(output_file, index=False)
 print(f"Fichier sans doublons '{output_file}' créé avec succès.")
