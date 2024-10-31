@@ -28,10 +28,12 @@ for column in columns_to_process:
     else:
         print(f"Option invalide pour la colonne '{column}'. Aucune action prise pour cette colonne.")
 
+base_filename = os.path.splitext(os.path.basename(csv_file))[0]
+
 output_folder = "resultat"
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
 
-output_file = os.path.join(output_folder, "delete_colonne_" + csv_file)
+output_file = os.path.join(output_folder, f"delete_colonne_{base_filename}.csv")
 data.to_csv(output_file, index=False)
 print(f"Fichier modifié '{output_file}' créé avec succès.")

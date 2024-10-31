@@ -27,10 +27,12 @@ while True:
 for column, values in columns_to_filter.items():
     data = data[~data[column].isin(values)]
 
+base_filename = os.path.splitext(os.path.basename(csv_file))[0]
+
 output_folder = "resultat"
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
 
-output_file = os.path.join(output_folder, "delete_ligne_" + csv_file)
+output_file = os.path.join(output_folder, f"delete_ligne_{base_filename}.csv")
 data.to_csv(output_file, index=False)
 print(f"Fichier filtré '{output_file}' créé avec succès.")

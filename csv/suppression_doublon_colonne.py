@@ -27,6 +27,8 @@ data[duplicate_column] = data.apply(
     axis=1
 )
 
-output_file = os.path.join(output_folder, "deduplicated_colonne_" + csv_file)
+base_filename = os.path.splitext(os.path.basename(csv_file))[0]
+
+output_file = os.path.join(output_folder, f"deduplicated_colonne_{base_filename}.csv")
 data.to_csv(output_file, index=False)
 print(f"Fichier sans doublons '{output_file}' créé avec succès.")

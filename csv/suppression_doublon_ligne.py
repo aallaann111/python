@@ -13,10 +13,6 @@ print("Colonnes disponibles :", ', '.join(data.columns))
 attributes = input("Entrez les attributs pour identifier les doublons, séparés par des virgules (ex: nom,prenom): ")
 attributes = [attr.strip() for attr in attributes.split(",")]
 
-output_folder = "resultat"
-if not os.path.exists(output_folder):
-    os.makedirs(output_folder)
-
 for attribute in attributes:
     if attribute not in data.columns:
         print(f"Erreur : La colonne '{attribute}' n'existe pas dans le fichier.")
@@ -24,6 +20,12 @@ for attribute in attributes:
 
 deduplicated_data = data.drop_duplicates(subset=attributes)
 
-output_file = output_folder + "/deduplicated_ligne_date_" + csv_file
+base_filename = os.path.splitext(os.path.basename(csv_file))[0]
+
+output_folder = "resultat"
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
+
+output_file = os.path.join(output_folder, f"deduplicated_ligne_{base_filename}.csv")
 deduplicated_data.to_csv(output_file, index=False)
 print(f"Fichier sans doublons '{output_file}' créé avec succès.")
