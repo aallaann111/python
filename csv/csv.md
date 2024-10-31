@@ -1,5 +1,12 @@
 # Documentation
 
+- [1. Filtrer Attribut Type](#1-filtrer_attribut_typefiltrer_attribut_typepy)
+- [2. Suppression Doublon Colonne](#2-suppression_doublon_colonnesuppression_doublon_colonnepy)
+- [3. Suppression Doublon Ligne](#3-suppression_doublon_lignesuppression_doublon_lignepy)
+- [4. Suppression Doublon Ligne Date](#4-suppression_doublon_ligne_datesuppression_doublon_ligne_datepy)
+- [5. Suppression Ligne](#5-suppression_lignesuppression_lignepy)
+- [6. Suppression Colonne](#6-suppression_colonnesuppression_colonnepy)
+
 ## Prérequis
 
 - La bibliothèque `pandas` pour manipuler les données.dossiers
@@ -57,6 +64,7 @@ Le script créera deux fichiers dans le dossier `resultat` :
 - `Meubles.csv` contenant les produits avec la catégorie "Meubles".
 - `Bureau.csv` contenant les produits avec la catégorie "Bureau".
 
+# test
 
 # 2. [suppression_doublon_colonne](suppression_doublon_colonne.py)
 
