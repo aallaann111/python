@@ -17,6 +17,14 @@ Installez `pandas` avec la commande suivante si nécessaire :
 pip install pandas
 ```
 
+- La bibliothèque `tkinter` pour un interface graphique.
+
+Installez `tkinter` avec la commande suivante si nécessaire :
+
+```bash
+pip install tk
+```
+
 
 # 1. [filtrer_attribut_type](filtrer_attribut_type.py)
 
