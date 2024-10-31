@@ -60,7 +60,56 @@ Le script créera deux fichiers dans le dossier `resultat` :
 
 # 2. [suppression_doublon_colonne](suppression_doublon_colonne.py)
 
+### Description
 
+Ce script Python permet de traiter un fichier CSV en supprimant les valeurs redondantes dans une colonne spécifique en fonction d'une colonne de référence. Lorsqu'une valeur dans la colonne de doublons est identique à celle de la colonne de référence pour une ligne donnée, cette valeur est remplacée par une chaîne vide, signalant une redondance dans les données.
+
+### Utilisation
+
+1. **Préparez le fichier CSV** : Assurez-vous d'avoir un fichier CSV dans le même répertoire que le script ou notez son chemin d'accès.
+
+2. **Exécution du script** :
+   Exécutez le script avec la commande suivante dans votre terminal :
+   ```bash
+   python suppression_doublon_colonne.py
+   ```
+
+3. **Instructions interactives** :
+   - Le script vous demandera le **nom du fichier CSV** (par exemple `data.csv`). Entrez le nom du fichier.
+   - Il affichera ensuite les colonnes disponibles dans le fichier.
+   - Sélectionnez une **colonne de référence** qui sera comparée à une **colonne contenant les doublons**.
+   - Le script vérifie l'existence de ces colonnes dans le fichier.
+
+4. **Résultat** :
+   - Le script crée un dossier nommé `resultat` dans le même répertoire.
+   - Un fichier CSV nommé `deduplicated_colonne_<nom_du_fichier_original>.csv` sera généré dans le dossier `resultat`, avec les valeurs redondantes supprimées dans la colonne spécifiée.
+
+5. **Fin de l'opération** :
+   Une fois l'opération terminée, le script affiche un message confirmant la création du fichier sans doublons.
+
+### Exemple
+
+Supposons un fichier `ventes.csv` avec la structure suivante :
+
+| id | produit   | nom_produit | prix |
+|----|-----------|-------------|------|
+| 1  | Chaise    | Chaise      | 50   |
+| 2  | Table     | Table       | 100  |
+| 3  | Canapé    | Sofa        | 300  |
+
+- **Nom du fichier** : `ventes.csv`
+- **Colonne de référence** : `produit`
+- **Colonne contenant les doublons** : `nom_produit`
+
+Le script créera un fichier `deduplicated_colonne_ventes.csv` dans le dossier `resultat`, où les redondances dans `nom_produit` sont remplacées par une chaîne vide :
+
+| id | produit   | nom_produit | prix |
+|----|-----------|-------------|------|
+| 1  | Chaise    |             | 50   |
+| 2  | Table     |             | 100  |
+| 3  | Canapé    | Sofa        | 300  |
+
+Dans cet exemple, les valeurs de `nom_produit` qui sont identiques aux valeurs de `produit` ont été supprimées, tandis que les autres valeurs ont été conservées.
 
 # 3. [suppression_doublon_ligne](suppression_doublon_ligne.py)
 
@@ -165,3 +214,111 @@ Le script créera un fichier `deduplicated_historique.csv` dans le dossier `resu
 | 3  | Dupont | Marie  | 2023-07-01        |
 
 Dans cet exemple, pour le doublon `nom = Dupont` et `prenom = Marie`, seule la ligne avec la date de modification la plus récente a été conservée.
+
+# 5. [suppression_ligne](suppression_ligne.py)
+
+### Description
+
+Ce script Python permet de filtrer un fichier CSV en supprimant les lignes contenant des valeurs spécifiques dans des colonnes définies par l'utilisateur. Ce script est particulièrement utile pour nettoyer des données en éliminant des lignes non pertinentes ou indésirables en fonction de critères précis sur une ou plusieurs colonnes.
+
+### Utilisation
+
+1. **Préparez le fichier CSV** : Assurez-vous d'avoir un fichier CSV dans le même répertoire que le script ou notez son chemin d'accès.
+
+2. **Exécution du script** :
+   Exécutez le script avec la commande suivante dans votre terminal :
+   ```bash
+   python suppression_ligne.py
+   ```
+
+3. **Instructions interactives** :
+   - Le script vous demandera le **nom du fichier CSV** (par exemple `data.csv`). Entrez le nom du fichier.
+   - Il affichera ensuite les colonnes disponibles dans le fichier.
+   - Sélectionnez les colonnes pour le filtrage en entrant le **nom de la colonne** puis en indiquant les valeurs spécifiques à supprimer dans cette colonne, séparées par des virgules (par exemple : `valeur1,valeur2`). Vous pouvez ajouter plusieurs colonnes de cette façon, en appuyant sur **Entrée** sans rien saisir pour terminer la sélection.
+
+4. **Résultat** :
+   - Le script crée un dossier nommé `resultat` dans le même répertoire.
+   - Un fichier CSV filtré, nommé `delete_ligne_<nom_du_fichier_original>.csv`, sera généré dans le dossier `resultat`, avec les lignes contenant les valeurs indésirables supprimées.
+
+5. **Fin de l'opération** :
+   Une fois l'opération terminée, le script affiche un message confirmant la création du fichier filtré.
+
+### Exemple
+
+Supposons un fichier `inventaire.csv` avec la structure suivante :
+
+| id | produit   | catégorie | stock |
+|----|-----------|-----------|-------|
+| 1  | Chaise    | Meubles   | 20    |
+| 2  | Table     | Meubles   | 15    |
+| 3  | Stylo     | Bureau    | 100   |
+| 4  | Crayon    | Bureau    | 50    |
+
+- **Nom du fichier** : `inventaire.csv`
+- **Colonnes à filtrer** : 
+  - Colonne `catégorie` avec les valeurs `Meubles`
+  - Colonne `stock` avec la valeur `50`
+
+Le script créera un fichier `delete_ligne_inventaire.csv` dans le dossier `resultat`, contenant les données suivantes :
+
+| id | produit | catégorie | stock |
+|----|---------|-----------|-------|
+| 3  | Stylo   | Bureau    | 100   |
+
+Dans cet exemple, toutes les lignes où `catégorie` est `Meubles` ou `stock` est `50` ont été supprimées du fichier.
+
+# 6. [suppression_colonne](suppression_colonne.py)
+
+### Description
+
+Ce script Python permet de modifier un fichier CSV en supprimant soit une ou plusieurs colonnes entières, soit uniquement le contenu de certaines colonnes, en fonction des préférences de l'utilisateur. Ce script est utile pour préparer un jeu de données en supprimant des informations sensibles ou non pertinentes tout en conservant la structure du fichier.
+
+### Utilisation
+
+1. **Préparez le fichier CSV** : Assurez-vous d'avoir un fichier CSV dans le même répertoire que le script ou notez son chemin d'accès.
+
+2. **Exécution du script** :
+   Exécutez le script avec la commande suivante dans votre terminal :
+   ```bash
+   python suppression_colonne.py
+   ```
+
+3. **Instructions interactives** :
+   - Le script vous demandera le **nom du fichier CSV** (par exemple `data.csv`). Entrez le nom du fichier.
+   - Il affichera ensuite les colonnes disponibles dans le fichier.
+   - Sélectionnez une ou plusieurs **colonnes à traiter**, en les séparant par des virgules (par exemple : `nom,adresse`).
+   - Pour chaque colonne sélectionnée, vous devrez indiquer si vous souhaitez **supprimer la colonne entière** ou seulement **vider son contenu** :
+     - **colonne** : La colonne entière est supprimée du fichier.
+     - **contenu** : La colonne est conservée, mais son contenu est remplacé par des chaînes vides.
+
+4. **Résultat** :
+   - Le script crée un dossier nommé `resultat` dans le même répertoire.
+   - Un fichier CSV modifié, nommé `delete_colonne_<nom_du_fichier_original>.csv`, sera généré dans le dossier `resultat`, selon les choix effectués pour chaque colonne.
+
+5. **Fin de l'opération** :
+   Une fois l'opération terminée, le script affiche un message confirmant la création du fichier modifié.
+
+### Exemple
+
+Supposons un fichier `employes.csv` avec la structure suivante :
+
+| id | nom      | adresse        | salaire |
+|----|----------|----------------|---------|
+| 1  | Dupont   | 123 Rue A      | 3000    |
+| 2  | Durand   | 456 Rue B      | 3200    |
+| 3  | Martin   | 789 Rue C      | 2900    |
+
+- **Nom du fichier** : `employes.csv`
+- **Colonnes à traiter** : `adresse,salaire`
+  - **Option pour `adresse`** : `contenu`
+  - **Option pour `salaire`** : `colonne`
+
+Le script créera un fichier `delete_colonne_employes.csv` dans le dossier `resultat`, avec le contenu suivant :
+
+| id | nom      | adresse | 
+|----|----------|---------|
+| 1  | Dupont   |         |
+| 2  | Durand   |         |
+| 3  | Martin   |         |
+
+Dans cet exemple, la colonne `salaire` a été entièrement supprimée, et le contenu de la colonne `adresse` a été vidé, mais la colonne elle-même est conservée.
