@@ -12,3 +12,14 @@ winget install Python.Python.3
 
 Permet de filtrer des fichiers csv selon plein d'option et de méthode differente.
 
+# 2. [Créer un calandrier](calandrier/calandrierPrevi.py)
+
+Permet de générer un calandrier prévisionnel.
+
+## Prérequis
+
+- matplotlib
+
+```bash
+pip install matplotlib
+```
