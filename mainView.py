@@ -13,10 +13,6 @@ class MainView:
         btn1 = ttk.Button(self.frame, text="Créer un calendrier", 
                           command=lambda: self.app.show_view("calendrier")) 
         btn1.pack(pady=5)
-
-        #btn2 = ttk.Button(self.frame, text="Traitement des colonnes", 
-        #                  command=lambda: self.app.show_view("process")) 
-        #btn2.pack(pady=5)
     
     
     def show(self):

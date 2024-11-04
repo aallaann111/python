@@ -1,7 +1,6 @@
 import tkinter as tk
 from calendrier.calendrierView import calendrierView
 from mainView import MainView
-from csv.app import App
 
 
 class App:
@@ -12,8 +11,7 @@ class App:
         
         self.views = {
             "main": MainView(self),
-            "calendrier": calendrierView(self),
-            #"process": SuppressionColonneView(self)
+            "calendrier": calendrierView(self)
         }
         
         self.show_view("main")
