@@ -17,6 +17,7 @@ class MainView:
         btn2 = ttk.Button(self.frame, text="Traitement des colonnes", 
                           command=lambda: self.app.show_view("process")) 
         btn2.pack(pady=5)
+        
     
     def show(self):
         self.frame.pack()
