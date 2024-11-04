@@ -26,7 +26,7 @@ pip install tk
 ```
 
 
-# 1. [filtrer_attribut_type](filtrer_attribut_type.py)
+# 1. [filtrer_attribut_type](code/filtrer_attribut_type.py)
 
 ### Description
 
@@ -74,7 +74,7 @@ Le script créera deux fichiers dans le dossier `resultat` :
 
 # test
 
-# 2. [suppression_doublon_colonne](suppression_doublon_colonne.py)
+# 2. [suppression_doublon_colonne](code/suppression_doublon_colonne.py)
 
 ### Description
 
@@ -127,7 +127,7 @@ Le script créera un fichier `deduplicated_colonne_ventes.csv` dans le dossier `
 
 Dans cet exemple, les valeurs de `nom_produit` qui sont identiques aux valeurs de `produit` ont été supprimées, tandis que les autres valeurs ont été conservées.
 
-# 3. [suppression_doublon_ligne](suppression_doublon_ligne.py)
+# 3. [suppression_doublon_ligne](code/suppression_doublon_ligne.py)
 
 ### Description
 
@@ -177,7 +177,7 @@ Le script créera un fichier `deduplicated_contacts.csv` dans le dossier `result
 
 Dans cet exemple, seule la première occurrence du doublon `nom = Dupont` et `prenom = Marie` est conservée.
 
-# 4. [suppression_doublon_ligne_date](suppression_doublon_ligne_date.py)
+# 4. [suppression_doublon_ligne_date](code/suppression_doublon_ligne_date.py)
 
 ### Description
 
@@ -231,7 +231,7 @@ Le script créera un fichier `deduplicated_historique.csv` dans le dossier `resu
 
 Dans cet exemple, pour le doublon `nom = Dupont` et `prenom = Marie`, seule la ligne avec la date de modification la plus récente a été conservée.
 
-# 5. [suppression_ligne](suppression_ligne.py)
+# 5. [suppression_ligne](code/suppression_ligne.py)
 
 ### Description
 
@@ -283,7 +283,7 @@ Le script créera un fichier `delete_ligne_inventaire.csv` dans le dossier `resu
 
 Dans cet exemple, toutes les lignes où `catégorie` est `Meubles` ou `stock` est `50` ont été supprimées du fichier.
 
-# 6. [suppression_colonne](suppression_colonne.py)
+# 6. [suppression_colonne](code/suppression_colonne.py)
 
 ### Description
 
