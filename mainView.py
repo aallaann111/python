@@ -1,4 +1,5 @@
 from tkinter import ttk
+import subprocess
 
 class MainView:
     def __init__(self, app):
@@ -13,8 +14,14 @@ class MainView:
         btn1 = ttk.Button(self.frame, text="Créer un calendrier", 
                           command=lambda: self.app.show_view("calendrier")) 
         btn1.pack(pady=5)
+        
+        btn2 = ttk.Button(self.frame, text="Modifier un csv", 
+                          command=self.launch_csv_app) 
+        btn2.pack(pady=5)
     
-    
+    def launch_csv_app(self):
+        subprocess.Popen(["python", "python/csv/app.py"])
+        
     def show(self):
         self.frame.pack()
 

@@ -1,6 +1,6 @@
 from tkinter import ttk
 
-class MainView:
+class MainViewCsv:
     def __init__(self, app):
         self.app = app
         self.frame = ttk.Frame(app.root)

@@ -1,5 +1,5 @@
 import tkinter as tk
-from mainView import MainView
+from mainViewCsv import MainViewCsv
 from view.filterView import FilterView
 from view.SuppressionColonneView import SuppressionColonneView
 
@@ -11,7 +11,7 @@ class App:
         self.root.geometry("600x400")
         
         self.views = {
-            "main": MainView(self),
+            "main": MainViewCsv(self),
             "filter": FilterView(self),
             "process": SuppressionColonneView(self)
         }
