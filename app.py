@@ -6,7 +6,7 @@ from mainView import MainView
 class App:
     def __init__(self, root):
         self.root = root
-        self.root.title("Sélection de fonction CSV")
+        self.root.title("Application")
         self.root.geometry("600x400")
         
         self.views = {

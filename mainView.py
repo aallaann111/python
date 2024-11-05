@@ -20,7 +20,7 @@ class MainView:
         btn2.pack(pady=5)
     
     def launch_csv_app(self):
-        subprocess.Popen(["python", "python/csv/app.py"])
+        subprocess.Popen(["python", "csv/app.py"])
         
     def show(self):
         self.frame.pack()
