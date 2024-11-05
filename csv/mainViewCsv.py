@@ -18,6 +18,10 @@ class MainViewCsv:
                           command=lambda: self.app.show_view("process")) 
         btn2.pack(pady=5)
         
+        btn3 = ttk.Button(self.frame, text="Refactoriser fichier", 
+                          command=lambda: self.app.show_view("refactor"))
+        btn3.pack(pady=5)
+        
     
     def show(self):
         self.frame.pack()

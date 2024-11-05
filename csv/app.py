@@ -2,6 +2,7 @@ import tkinter as tk
 from mainViewCsv import MainViewCsv
 from view.filterView import FilterView
 from view.SuppressionColonneView import SuppressionColonneView
+from view.refactorFileView import RefactorFileView
 
 
 class App:
@@ -13,7 +14,8 @@ class App:
         self.views = {
             "main": MainViewCsv(self),
             "filter": FilterView(self),
-            "process": SuppressionColonneView(self)
+            "process": SuppressionColonneView(self),
+            "refactor": RefactorFileView(self),
         }
         
         self.show_view("main")
