@@ -1,30 +1,42 @@
+# app.py
+
+"""
+Main application module that initializes and manages different views using tkinter.
+"""
+
 import tkinter as tk
-from calendrier.calendrierView import calendrierView
-from mainView import MainView
+from calendrier.calendrier_View import CalendrierView
+from Main_View import MainView
 
 
+# pylint: disable=too-few-public-methods
 class App:
+    """
+    Main application class that initializes the application window and manages different views.
+    """
+
     def __init__(self, root):
+        """Initialize the application with the main tkinter window."""
         self.root = root
         self.root.title("Application")
         self.root.geometry("600x400")
         
         self.views = {
             "main": MainView(self),
-            "calendrier": calendrierView(self)
+            "calendrier": CalendrierView(self)
         }
         
         self.show_view("main")
         
     def show_view(self, view_name):
-        for name, view in self.views.items():
+        """Hide all views except the specified view."""
+        for _, view in self.views.items():
             view.hide()
         
         self.views[view_name].show()
-    
-    
+
 
 if __name__ == "__main__":
-    root = tk.Tk()
-    app = App(root)
-    root.mainloop()
+    main_root = tk.Tk()  # Renamed from `root` to avoid redefinition warning
+    app = App(main_root)
+    main_root.mainloop()
