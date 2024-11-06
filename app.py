@@ -9,7 +9,6 @@ from calendrier.calendrier_View import CalendrierView
 from Main_View import MainView
 
 
-# pylint: disable=too-few-public-methods
 class App:
     """
     Main application class that initializes the application window and manages different views.
@@ -37,6 +36,6 @@ class App:
 
 
 if __name__ == "__main__":
-    main_root = tk.Tk()  # Renamed from `root` to avoid redefinition warning
+    main_root = tk.Tk()
     app = App(main_root)
     main_root.mainloop()

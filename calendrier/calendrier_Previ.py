@@ -8,7 +8,6 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
-# pylint: disable=too-few-public-methods
 class CalendrierPrevisionnel:
     """
     Class to plot the project timeline for different project phases.
